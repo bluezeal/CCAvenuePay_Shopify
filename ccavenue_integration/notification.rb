@@ -15,8 +15,8 @@ module ActiveMerchant #:nodoc:
       module CcavenueIntegration
         class Notification < ActiveMerchant::Billing::Integrations::Notification
           def complete?
-            params['Complete']
-           # status == 'Completed'
+           # params['Complete']
+            status == 'Completed'
           end
 
           def item_id
@@ -105,6 +105,9 @@ module ActiveMerchant #:nodoc:
               params[key] = CGI.unescape(value.to_s) if key.present?
             end
           end
+          
+          
+          
         end
       end
     end
