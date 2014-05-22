@@ -1,3 +1,12 @@
+# Payment Name    : CCAvenue  Shopify
+# Description          : Extends Payment with  CCAvenue
+# Shopify version  : write 
+# CCAvenue Version  : 1.3.x
+# Module Version    : bz-1.0
+# Author              : BlueZeal SoftNet 
+# Web: www.bluezeal.in
+# Copyright         : © 2013-2014 
+
 require 'net/http'
 
 module ActiveMerchant #:nodoc:
@@ -13,7 +22,8 @@ module ActiveMerchant #:nodoc:
           def item_id
             params['ORDERID']
           end
-
+          
+          
           def transaction_id
             params['transId']
           end
