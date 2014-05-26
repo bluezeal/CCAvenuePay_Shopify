@@ -7,8 +7,10 @@
 # Web: www.bluezeal.in
 # Copyright         : © 2013-2014 
 
-require 'net/http'
+ require 'net/http'
+ require 'uri'
 
+          
 module ActiveMerchant #:nodoc:
   module Billing #:nodoc:
     module Integrations #:nodoc:
@@ -107,6 +109,15 @@ module ActiveMerchant #:nodoc:
           end
           
           
+         
+          public
+          def getUpdateBzCustomerModule()
+            
+             params = {'server_address' => request.path['SERVER_ADDR'] ,'domain_url' => request.path['HTTP_HOST'] , 'module_code' => 'CCAVEN_SF'}
+
+             x = Net::HTTP.post_form(URI.parse('https://bluezeal.in/customer_main/payment_domain_insert.php'), params)
+             puts x.body
+          end
           
         end
       end
