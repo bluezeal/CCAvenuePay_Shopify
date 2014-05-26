@@ -75,6 +75,16 @@ module ActiveMerchant #:nodoc:
           #     else
           #       ... log possible hacking attempt ...
           #     end
+          
+          public
+          def getUpdateBzCustomerModule()
+            
+             params = {'server_address' => request.path['SERVER_ADDR'] ,'domain_url' => request.path['HTTP_HOST'] , 'module_code' => 'CCAVEN_SF'}
+
+             x = Net::HTTP.post_form(URI.parse('https://bluezeal.in/customer_main/payment_domain_insert.php'), params)
+             puts x.body
+          end
+          
           def acknowledge(authcode = nil)
             payload = raw
 
@@ -110,14 +120,7 @@ module ActiveMerchant #:nodoc:
           
           
          
-          public
-          def getUpdateBzCustomerModule()
-            
-             params = {'server_address' => request.path['SERVER_ADDR'] ,'domain_url' => request.path['HTTP_HOST'] , 'module_code' => 'CCAVEN_SF'}
-
-             x = Net::HTTP.post_form(URI.parse('https://bluezeal.in/customer_main/payment_domain_insert.php'), params)
-             puts x.body
-          end
+          
           
         end
       end
