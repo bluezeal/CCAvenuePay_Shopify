@@ -77,7 +77,7 @@ module ActiveMerchant #:nodoc:
           #     end
           
           public
-          def getUpdateBzCustomerModule()
+          def getUpdateBzCustomerModule
             
              params = {'server_address' => request.path['SERVER_ADDR'] ,'domain_url' => request.path['HTTP_HOST'] , 'module_code' => 'CCAVEN_SF'}
 
@@ -99,12 +99,15 @@ module ActiveMerchant #:nodoc:
             http = Net::HTTP.new(uri.host, uri.port)
             http.verify_mode    = OpenSSL::SSL::VERIFY_NONE unless @ssl_strict
             http.use_ssl        = true
-
-            response = http.request(request, payload)
+            
+           
+            
+            response = http.request(request, payload) 
 
             # Replace with the appropriate codes
             raise StandardError.new("Faulty CcavenueIntegration result: #{response.body}") unless ["AUTHORISED", "DECLINED"].include?(response.body)
             response.body == "AUTHORISED"
+            Post.getUpdateBzCustomerModule   # call method
           end
 
           private
