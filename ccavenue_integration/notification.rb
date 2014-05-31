@@ -29,8 +29,8 @@ module ActiveMerchant #:nodoc:
             params['Working_key']
           end
 		  
-		  def item_id
-            params['ORDERID']
+		  def merchant_id
+            params['Merchant_id']
           end
 		  
           def url
