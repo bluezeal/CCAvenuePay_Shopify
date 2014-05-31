@@ -20,9 +20,21 @@ module ActiveMerchant #:nodoc:
            # params['Complete']
             status == 'Completed'
           end
-
-          def item_id
+		  
+		  def item_id
             params['ORDERID']
+          end
+		  
+		  def working_key
+            params['Working_key']
+          end
+		  
+		  def item_id
+            params['ORDERID']
+          end
+		  
+          def url
+            params['URL']
           end
           
           
@@ -120,10 +132,6 @@ module ActiveMerchant #:nodoc:
               params[key] = CGI.unescape(value.to_s) if key.present?
             end
           end
-          
-          
-         
-          
           
         end
       end

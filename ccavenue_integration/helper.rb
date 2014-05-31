@@ -15,7 +15,9 @@ module ActiveMerchant #:nodoc:
           # Replace with the real mapping
           mapping :account, 'KEY'
           mapping :amount, 'AMOUNT'
-
+          mapping :merchant_id, 'Merchant_id'
+		  mapping :Redirect_url, 'URL'
+		  mapping :working_key, 'Working_key'
           mapping :order, 'ORDERID'
          
           
