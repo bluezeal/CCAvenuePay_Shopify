@@ -34,7 +34,7 @@ module ActiveMerchant #:nodoc:
           end
 		  
           def Redirect_url
-            params['Rdirect_URL']
+            params['Redirect_URL']
           end
           
           
