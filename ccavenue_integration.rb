@@ -15,17 +15,15 @@ module ActiveMerchant #:nodoc:
     module Integrations #:nodoc:
       module CcavenueIntegration
 
-	    mattr_accessor :production_url, :test_url
+	    mattr_accessor :production_url
 	    self.production_url = 'http://www.ccavenue.com/shopzone/cc_details.jsp'
-		self.test_url = 'http://www.ccavenue.com/shopzone/cc_details.jsp'
+		
 		
 		def self.service_url
           mode = ActiveMerchant::Billing::Base.integration_mode
           case mode
           when :production
             self.production_url
-          when :test
-            self.test_url
           else
             raise StandardError, "Integration mode set to an invalid value: #{mode}"
           end
